@@ -1,0 +1,6 @@
+2018-06-13 21:26:23:993 INFO  TestMyController - {"symbol":"BTCUSDT","price":"6232.01000000"}
+2018-06-13 21:27:09:963 INFO  TestMyController - {"symbol":"BTCUSDT","price":"6228.10000000"}
+2018-06-14 21:13:10:203 INFO  TestMyController - {"symbol":"BTCUSDT","price":"6641.52000000"}
+2018-06-14 21:16:20:531 INFO  TestMyController - {"symbol":"BTCUSDT","price":"6644.99000000"}
+2018-06-14 22:56:08:677 INFO  TestMyController - {"symbol":"BTCUSDT","price":"6607.85000000"}
+2018-06-14 23:01:42:061 INFO  TestMyController - {"symbol":"BTCUSDT","price":"6615.43000000"}
