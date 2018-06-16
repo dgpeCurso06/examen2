@@ -2,6 +2,7 @@ package mx.unam.dgpe.sample.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.math.BigInteger;
 import org.apache.log4j.Logger;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
@@ -41,12 +42,14 @@ public class MyController extends AbstractVerticle {
         HttpServerResponse response = routingContext.response();
         HttpServerRequest request = routingContext.request();
         int num = Integer.parseInt(request.getParam("var1"));
-	    int fac=1;
-    	while ( num!=0) {
-          		fac=fac*num;
-          		num--;
-        	}
-        String sfac =String.valueOf(fac);
+        BigInteger fact = fact(num);
+	    int powerOfTwoCount = 0;
+    BigInteger two = BigInteger.valueOf(2);
+    while (fact.compareTo(BigInteger.ZERO) > 0 && fact.mod(two).equals(BigInteger.ZERO)) {
+        powerOfTwoCount++;
+        fact = fact.divide(two);
+    }
+        String sfac =String.valueOf(powerOfTwoCount);
         int resultado = sfac.length();
 
         String jsonResponse = resSum(resultado, num,request);
@@ -55,6 +58,12 @@ public class MyController extends AbstractVerticle {
         end(jsonResponse);
     }
 
+    private static BigInteger fact(long n) {
+        BigInteger result = BigInteger.ONE;
+        for (long i = 2; i <= n; i++)
+            result = result.multiply(BigInteger.valueOf(i));
+        return result;
+    }
     private String resSum(int result, int var1, HttpServerRequest request) {
         
         Map<Object, Object> cal = new HashMap<>();
